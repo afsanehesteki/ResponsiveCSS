@@ -1,0 +1,135 @@
+:root{
+    --clr-primary-300: #F3EED9;
+    --clr-primary-400: #824936;
+
+    --clr-neutral-100:#FFF;
+    --clr-neutral-900: #222C2A;
+
+    --ff-primary: "Roboto", san-serif;
+    --ff-accent : "Playfair Display" , serif;
+}
+
+body{
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-weight: 400;
+    font-size: 1.3125rem;
+    line-height: 1.6;
+     /*----------------*/ 
+    background-color: lightblue;
+
+}
+/*
+https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+
+Use mediaqueries to set the background-color
+to lavender if the viewport is 800 pixels wide or wider, 
+to lightgreen if the viewport is between 400 and 799 pixels wide.
+ If the viewport is smaller than 400 pixels, the background-color is lightblue.
+*/
+@media screen and (min-width: 400px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
+  
+  @media screen and (min-width: 800px) {
+    body {
+      background-color: lavender;
+    }
+  }
+ /*----------------*/ 
+
+h1,h2{
+    color:var(--clr-primary-400);
+
+}
+h1,
+h2,
+p{
+    margin-bottom: 1em;
+}
+
+.bg-primary{
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-400);
+}
+
+.bg-dark {
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-900);
+}
+
+.bg-accent{
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-400);
+}
+
+.bg-light {
+    background-color: var(--clr-primary-300);
+}
+
+.bg-dark h2{
+    color: var(--clr-primary-300);
+}
+
+.bg-accent h2{
+    color: var(--clr-primary-300);
+}
+
+header,
+section {
+    padding: 3rem 0;
+}
+
+/*take advantage of larger screen, and apply more padding*/
+@media(min-width: 40em){
+    header,
+section {
+    padding: 7rem 0;
+}
+}
+
+
+
+.container{
+    margin-inline: auto ;
+    width: min(90% , 70rem); 
+}
+
+.split{
+    display: flex;
+    flex-direction: column; /*default direction is column  (2 rows )*/
+}
+
+@media (min-width: 40em){ /*if width is 40em or wider, make direction 'row' => 2 columns*/
+    .split{
+        flex-direction: row;
+    }
+
+    /*to have equal columns : all the direct children of my split have flex-basis=100% */
+    .split  > *{
+        flex-basis: 100%;
+    }
+
+    /*To put space between columns: "* + *" is Adjasent sibling selector: means any element that has a sibling before it */
+    .split >* + * {
+        margin-left: 2em;
+    }
+}
+
+
+.container--narrow{
+    max-width: 30rem;
+}
+
+
+.text-center{
+    margin:0 5rem 0 5rem ;
+    text-align: center;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
